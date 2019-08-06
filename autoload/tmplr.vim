@@ -3,7 +3,7 @@ function s:error_msg(message)
 endfunction
 
 function s:error(message)
-    return printf('echomsg "%s"', escape(s:error_msg(a:message), '"'))
+    return printf('echo "%s"', escape(s:error_msg(a:message), '"'))
 endfunction
 
 function tmplr#temples(dir) abort
@@ -11,11 +11,11 @@ function tmplr#temples(dir) abort
   if len(a:dir)
     let l:args .= ' --dir '.a:dir
   endif
-  let l:dir = trim(system(g:temples.l:args))
+  let l:dir = systemlist(g:temples.l:args)
   if v:shell_error
-    return s:error('error in '.g:temples.': '.l:dir)
+    return s:error('error in '.g:temples.': '.join(l:dir, "\n"))
   endif
-  return 'edit '.l:dir
+  return 'edit '.l:dir[0]
 endfunction
 
 function tmplr#temple_edit(cmd, ...) abort
@@ -32,11 +32,11 @@ function tmplr#temple_edit(cmd, ...) abort
     return s:error('TempleEdit requires a temple')
   endif
   let l:args .= l:dir_arg.' '.l:temple_arg
-  let l:temple = trim(system(g:temples.l:args))
+  let l:temple = systemlist(g:temples.l:args)
   if v:shell_error
-    return s:error('error in '.g:temples.': '.l:temple)
+    return s:error('error in '.g:temples.': '.join(l:temple, "\n"))
   endif
-  return a:cmd.' '.l:temple
+  return a:cmd.' '.l:temple[0]
 endfunction
 
 function tmplr#tmplr(cmd, ...) abort
