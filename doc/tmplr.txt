@@ -1,0 +1,121 @@
+*tmplr.txt*           For Vim version 8               Last change: 2019 Aug 05
+*tmplr* *vim-tmplr*
+
+                      _                   _      ~
+                     | |_ _ __ ___  _ __ | |_ __ ~
+                     | __| '_ ` _ \| '_ \| | '__|~
+                     | |_| | | | | | |_) | | |   ~
+                      \__|_| |_| |_| .__/|_|_|   ~
+                                   |_|           ~
+
+                   The holiest cli template system. In vim.
+
+==============================================================================
+CONTENTS                                                      *tmplr-contents*
+
+    1. Intro ................................................... |tmplr-intro|
+    2. Usage ................................................... |tmplr-usage|
+    3. Configuration ................................... |tmplr-configuration|
+    4. License ............................................... |tmplr-license|
+    5. Bugs ..................................................... |tmplr-bugs|
+    6. Contributing ..................................... |tmplr-contributing|
+    7. Credits ............................................... |tmplr-credits|
+
+==============================================================================
+INTRO                                                            *tmplr-intro*
+
+tmplr is a vim plugin that brings tmplr[1] to vim
+
+[1]: https://pypi.org/project/tmplr
+
+==============================================================================
+USAGE                                                            *tmplr-usage*
+
+Install it with your favorite plugin manager, and then use one of the provided
+commands!
+
+*:Temples* `[directory]`
+    Open the `directory` containing your temples. If `directory` is not provided,
+    will use the system default.
+
+*:Etemple* `name` `[directory]`
+    Edit the named `temple` from the given `directory` (or the system default).
+
+*:Stemple* `name` `[directory]`
+    Like |:Etemple| but in a split
+
+*:Vtemple* `name` `[directory]`
+    Like |:Etemple| but in a vertical split
+
+*:Ttemple* `name` `[directory]`
+    Like |:Etemple| but in a tab
+
+*:Etmplr* {args}
+    Render and edit a template. {args} is like that of tmplr (see `tmplr -h`
+    for details). `--stdout`, `--no-edit`, `--print-file`, `--help`, and
+    `--version` are ignored, if given.
+
+*:Stmplr* {args}
+    Like |:Etmplr| but in a split
+
+*:Vtmplr* {args}
+    Like |:Etmplr| but in a vertical split
+
+*:Ttmplr* {args}
+    Like |:Etmplr| but in a tab
+
+==============================================================================
+CONFIGURATION                                            *tmplr-configuration*
+
+There are a couple of variables used by tmplr to determine the tmplr and
+temples program paths.
+
+Default values are shown.
+
+------------------------------------------------------------------------------
+
+* *g:tmplr*
+Name of tmplr program >
+    let g:tmplr = 'tmplr'
+
+* *g:tmplr_italic*
+Name of temples program >
+    let g:tmplr = 'temples'
+
+==============================================================================
+LICENSE                                                        *tmplr-license*
+
+MIT License. Copyright © 2019 D. Ben Knoble
+Full text available at
+https://github.com/benknoble/vim-tmplr/blob/master/LICENSE
+
+==============================================================================
+BUGS                                                              *tmplr-bugs*
+
+At the time of this writing, no major bugs have been found.
+
+If you find one and wish to report it, you can do so at
+https://github.com/benknoble/vim-tmplr/issues
+
+==============================================================================
+CONTRIBUTING                                              *tmplr-contributing*
+
+Want to submit a new feature, bugfix, or hack on tmplr?
+Submit pull requests to
+https://github.com/benknoble/vim-tmplr/pulls
+
+Existing code determines style guidelines.
+
+==============================================================================
+CREDITS                                                        *tmplr-credits*
+
+Further information at
+https://pypi.org/project/tmplr
+
+Maintained by:
+- D. Ben Knoble (https://github.com/benknoble)
+
+Git repository:
+https://github.com/benknoble/vim-tmplr
+
+ vim:tw=78:ts=8:ft=help:norl:
