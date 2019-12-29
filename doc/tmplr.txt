@@ -42,7 +42,7 @@ commands!
     Edit the named `temple` from the given `directory` (or the system default).
 
 *:Stemple* `name` `[directory]`
-    Like |:Etemple| but in a split
+    Like |:Etemple| but in a split. Respects <mods>.
 
 *:Vtemple* `name` `[directory]`
     Like |:Etemple| but in a vertical split
@@ -56,7 +56,7 @@ commands!
     `--version` are ignored, if given.
 
 *:Stmplr* {args}
-    Like |:Etmplr| but in a split
+    Like |:Etmplr| but in a split. Respects <mods>.
 
 *:Vtmplr* {args}
     Like |:Etmplr| but in a vertical split

@@ -43,10 +43,10 @@ endif
 
 command -nargs=? -complete=dir Temples exec tmplr#temples(<q-args>)
 command -nargs=+ Etemple exec tmplr#temple_edit('edit', <f-args>)
-command -nargs=+ Stemple exec tmplr#temple_edit('split', <f-args>)
-command -nargs=+ Vtemple exec tmplr#temple_edit('vsplit', <f-args>)
-command -nargs=+ Ttemple exec tmplr#temple_edit('tabedit', <f-args>)
+command -nargs=+ Stemple exec tmplr#temple_edit('<mods> split', <f-args>)
+command -nargs=+ Vtemple vertical Stemple <args>
+command -nargs=+ Ttemple tab Stemple <args>
 command -nargs=+ Etmplr exec tmplr#tmplr('edit', <f-args>)
-command -nargs=+ Stmplr exec tmplr#tmplr('split', <f-args>)
-command -nargs=+ Vtmplr exec tmplr#tmplr('vsplit', <f-args>)
-command -nargs=+ Ttmplr exec tmplr#tmplr('tabedit', <f-args>)
+command -nargs=+ Stmplr exec tmplr#tmplr('<mods> split', <f-args>)
+command -nargs=+ Vtmplr vertical Stmplr <args>
+command -nargs=+ Ttmplr tab Stmplr <args>
