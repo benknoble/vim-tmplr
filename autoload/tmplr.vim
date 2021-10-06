@@ -6,6 +6,30 @@ function s:error(message)
     return printf('echo "%s"', escape(s:error_msg(a:message), '"'))
 endfunction
 
+if ! (executable(g:tmplr) && executable(g:temples))
+  execute s:error(join([
+        \ 'tmplr or temples program not executable',
+        \ 'tmplr executable: '.g:tmplr,
+        \ 'temples executable: '.g:temples,
+        \ ], "\n"))
+endif
+
+function s:version() abort
+  let l:pieces = split(trim(system(g:tmplr.' --version')), '\.')
+  if v:shell_error
+    return [-1, -1, -1]
+  endif
+  return map(l:pieces, {_,p -> str2nr(p)})
+endfunction
+
+let [s:major, s:minor, s:patch] = s:version()
+if !( s:major > 0 || s:minor >= 2 )
+  execute s:error(join([
+        \ 'requires tmplr >= 0.2.0',
+        \ printf('current: tmplr == %d.%d.%d', s:major, s:minor, s:patch),
+        \ ], "\n"))
+endif
+
 function tmplr#temples(dir) abort
   let l:args = ' --print-dir'
   if len(a:dir)
